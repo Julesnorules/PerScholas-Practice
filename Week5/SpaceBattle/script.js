@@ -1,5 +1,3 @@
-//SPACE BATTLE!
-
 class Ship {
   constructor(name, hull, firepower, accuracy) {
       this.name = name,
@@ -7,64 +5,56 @@ class Ship {
       this.firepower = firepower, 
       this.accuracy = accuracy
   }
+  attack() {
+      
+  }
 }
 
-class HeroShip extends Ship {
+class heroShip extends Ship {
   constructor (name, hull, firepower, accuracy) {
     super (name, hull, firepower, accuracy);
     this.name = "USS Assembly";
     this.hull = 20;
-    this.firepower = 5;
+    this.firepower = 5
     this.accuracy =.7;
   }
-  attackAlien(targets) {
-    if(this.hull > 0){
-      for(let alienShip of targets){
-        do{
-          let randomNum = Math.random();
-            if(randomNum < this.accuracy){
-              alienShip.hull -= this.firepower; 
-               console.log("You hit the target!");
-            } else {console.log("You have missed!")}
-              alienShip.attackHero(this) 
-          } while(alienShip.hull > 0){console.log(`Good job! The ${alienShip.name} is destroyed!`)};
-          if(alienShip.name === "AlienShip #6" && alienShip.hull <= 0) {
-            console.log("Hooray! Congratulations, you saved the Earth from an alien invasion!");
-        }
-      } 
-    }else {console.log("The Erth is doomed!")}
+  attack(heroShip) {
+    if (this.hull >= 1) {
+      if (alienShip.name === alienShip[0].name) {
+        if (Math.floor(Math.random() * Math.floor(.7)) = this.accuracy) {
+          console.log((alienShip.hull = -.7));
+        } 
+      }
+    }
   }
 }
 
-class AlienShip extends Ship {
+
+
+class alienShip extends Ship {
   constructor (name, hull, firepower, accuracy) {
     super (name, hull, firepower, accuracy);
     this.name = name;
-    this.hull = Math.floor(Math.random() * 4) + 3;
-    this.firepower = Math.floor(Math.random() * 3) + 2;
-    this.accuracy = accuracy || Number((Math.random() * (0.8 - 0.6) + 0.6).toFixed(1));
+    this.hull = hull || Math.floor(Math.random() * 3) + 3;
+    this.firepower = firepower || Math.floor(Math.random() * 2) + 4;
+    this.accuracy = accuracy || Math.floor(Math.random() * 6) + 8;
   }
-  attackHero(target) {
-    if (this.hull >= 1) {      
-      let randomNum = Math.random()
-      if(randomNum < target.accuracy){
-        console.log(`Attacked ${target.name} for ${this.firepower} damage!`);
-      } else console.log("It has missed!")
-    };          
-  };
+    attack(heroShip) {
+      if (this.hull >= 1) {
+        if (alienShip.name === alienShip[0].name) {
+          if (Math.floor(Math.random() * Math.floor(.7)) = this.accuracy) {
+            console.log((alienShip.hull = -.7));
+          } 
+        }
+      }
+    }
 }
+ 
+const alienShips = []; 
 
-let heroShipOne = new HeroShip("USA Assembly");
-
-function createAlien() {
-  let alienShips = [];
-  for(let i=1; i<=6; i++){
-    let alienShip = new AlienShip("AlienShip #" + i );
-    alienShips.push(alienShip);
-  }
-  return alienShips;
-} 
-let alienShips = createAlien();
-
-heroShipOne.attackAlien(alienShips);
-
+alienShip.unshift((a1 = new alienShip("#1")));
+alienShip.unshift((a2 = new alienShip("#2")));
+alienShip.unshift((a3 = new alienShip("#3")));
+alienShip.unshift((a4 = new alienShip("#4")));
+alienShip.unshift((a5 = new alienShip("#5")));
+alienShip.unshift((a6 = new alienShip("#6")));
