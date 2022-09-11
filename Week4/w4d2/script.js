@@ -1,4 +1,4 @@
-const menuLinks = [
+let menuLinks = [
   {text: 'about', href: '/about'},
   {text: 'catalog', href: '#', subLinks: [
     {text: 'all', href: '/catalog/all'},
@@ -20,7 +20,7 @@ const mainEl = document.querySelector('main');
 
 mainEl.style.backgroundColor = 'var(--main-bg)'
 
-mainEl.innerHTML = '<h1>SEL ROCKS</h1>'
+mainEl.innerHTML = '<h1>SEI ROCKS</h1>'
 
 mainEl.classList.add('flex-ctr');
 
@@ -32,105 +32,80 @@ topMenuEl.style.backgroundColor = 'var(--top-menu-bg)'
 
 topMenuEl.classList.add('flex-around');
 
-for(link of menuLinks) {
+for (link of menuLinks) {
   let newAnchor = document.createElement('a')
   newAnchor.setAttribute('href', link.href)
   newAnchor.textContent = link.text
   topMenuEl.appendChild(newAnchor)
 }
 
-const subMenuEl = document.querySelector("#sub-menu");
+const subMenuEl = document.getElementById('sub-menu');
 
-subMenuEl.style.height ='100%';
+subMenuEl.style.height = '100%';
 
 subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)'
 
-subMenuEl.classList.add('flex-aroundto');
+subMenuEl.classList.add('flex-around');
 
-subMenuEl.style.position = 'absolute'
+subMenuEl.style.position = 'absolute';
 
-subMenuEl.style.top = '0'
+subMenuEl.style.top = '0';
 
-const topMenuLinks = document.querySelectorAll('a');
+const topMenuLinks = document.querySelectorAll('#top-menu a');
 
 let showingSubMenu = false;
 
 topMenuEl.addEventListener('click', (event) => {
   event.preventDefault();
-  if(event.target === document.getElementById('top-menu'))
-    return;
-  let activEl = document.getElementsByClassName("active");
-  if (activEl.length > 0) {
-      activEl[0].className = activEl[0].className.replace("active", "");
-      showingSubMenu = false;
-      subMenuEl.style.top = '0';
-    return;
-  } 
-  
-  event.target.classList.add("active");
-  for(let i = 0; i<menuLinks.length; i++){
-    if(event.target.innerHTML === menuLinks[i].text){
-      if (menuLinks[i].hasOwnProperty("subLinks")){
-        showingSubMenu = true;
-        console.log(showingSubMenu);
-      } else{
-          showingSubMenu = false;
-          console.log(showingSubMenu);
-        }
-      if(showingSubMenu === true){
-        console.log(menuLinks[i].subLinks);
-        subMenuEl.style.top = '100%';
-      } else {            
-          subMenuEl.style.top = '0';
-        }
-    }
-  
-  }
+  let link = event.target;
+if (link.tagName !== 'A') return;
+console.log(link.textContent);
 
-})
-
-let buildSubMenu = (subLinks) => {
-  subMenuEl.innerHTML = "";
-  subLinks.forEach(link => {
-    const newLinkEl = document.createElement('a');
-    newLinkEl.setAttribute('href', link.href);
-    newLinkEl.textContent = link.text;
-    subMenuEl.appendChild(newLinkEl);
-  });
-
-}
-
-subMenuEl.addEventListener('click', function(event2){
-  event2.preventDefault();
-  const link = event2.target;
-  if (link.tagName != 'a') return;
-    console.log(link.textContent);
+if (link.classList.contains('active')) {
+  link.classList.remove('active');
   showingSubMenu = false;
   subMenuEl.style.top = '0';
-  topMenuLinks.forEach(function(link){
+  return;
+}
+
+topMenuLinks.forEach((link) => {
+  link.classList.remove('active');
+});
+
+link.classList.add('active');
+
+let linkData = menuLinks.find((linkObj) => {
+  return linkObj.text === link.textContent;
+});
+showingSubMenu = 'subLinks' in linkData;
+
+if (showingSubMenu) {
+  buildSubMenu(linkData.subLinks);
+  subMenuEl.style.top = '100%';
+} else {
+  subMenuEl.style.top = '0';
+}
+});
+
+function buildSubMenu(subLinks) {
+  subMenuEl.innerHTML = '';
+  subLinks.forEach((link) => {
+    let linkEl = document.createElement('a');
+    linkEl.setAttribute('href', link.href);
+    linkEl.textContent = link.text;
+    subMenuEl.appendChild(linkEl);
+  });
+}
+
+subMenuEl.addEventListener('click', (event) => {
+  event.preventDefault();
+  let link = event.target;
+  if (link.tagName !== 'A') return;
+  console.log(link.textContent);
+    showingSubMenu = false;
+  subMenuEl.style.top = '0';
+    topMenuLinks.forEach((link) => {
     link.classList.remove('active');
   });
   mainEl.innerHTML = `<h1>${link.textContent}</h1>`;
 });
-
-// Attach a delegated 'click' event listener to subMenuEl.
-
-// The first line of code of the event listener function should call the event object's preventDefault()method.
-
-// The second line of code function should immediately return if the element clicked was not an <a>element.
-
-// console.logthe content of the <a>to verify the handler is working.
-
-// Task 6.1
-// Next, the event listener should:
-
-// Set showingSubMenuto false.
-// Set the CSS topproperty of subMenuElto 0.
-// Task 6.2
-// Remove the class name of activefrom each <a>element in topMenuLinks- whether the activeclass exists or not.
-
-// Task 6.3
-// Update the contents of mainElto the contents of the <a>element, within an <h1>, clicked within subMenuEl.
-
-// Task 6.4
-// If the ABOUT link is clicked, an <h1>about</h1>should be displayed.
