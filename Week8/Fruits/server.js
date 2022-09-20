@@ -165,6 +165,14 @@ app.post('/veggies', (req, res) => {
 
 // Show
 
+app.get('/veggies/:id', (req, res) => {
+  Veggie.findOne({ _id: req.params.id }, (error, foundVeggie) => {
+    res.render('veggie/Show', {
+      veggie: foundVeggie
+    });
+  });
+});
+
 // Add a Veggie.findOne with the _id of the veggie you want to display. Reference the fruits one!
 
 app.get('/veggies/:indexOfArr', (req, res) => {

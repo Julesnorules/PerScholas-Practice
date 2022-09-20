@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// requires mongoose into our file
 
 const fruitSchema = new mongoose.Schema({
   // creates a new schema called fruitSchema
