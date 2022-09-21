@@ -3,6 +3,7 @@ const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Fruit = require('./models/Fruit');
+const Veggie = require('./models/Veggie');
 const methodOverride = require('method-override');
 
 // -------------------------
@@ -56,6 +57,19 @@ app.get('/fruits/new', (req, res) => {
   res.render('fruits/New');
 });
 
+// Create
+
+app.post('/fruits', (req, res) => {
+  if (req.body.readyToEat === 'on') {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  Fruit.create(req.body, (error, createdFruit) => {
+    res.redirect('/fruits')
+  })
+});
+
 // Delete
 
 app.delete('/fruits/:id', (req, res) => {
@@ -87,19 +101,6 @@ app.put('/fruits/:id', (req, res) => {
       res.redirect(`/fruits/$req.params.id`);
     }
   });
-});
-
-// Create
-
-app.post('/fruits', (req, res) => {
-  if (req.body.readyToEat === 'on') {
-    req.body.readyToEat = true;
-  } else {
-    req.body.readyToEat = false;
-  }
-  Fruit.create(req.body, (error, createdFruit) => {
-    res.redirect('/fruits')
-  })
 });
 
 // Edit
@@ -134,51 +135,93 @@ app.get('/fruits/:id', (req, res) => {
 // -------------------------
 
 // Index
+// Add a Veggie.find to find all of the veggies and pass that to your res.render
 
-app.get('/veggies', (req, res) => {
+app.get('/veggyies', (req, res) => {
   Veggie.find({}, (error, allVeggies) => {
-    res.render('veggies/Index', {
-      veggies: allVeggies
+    res.render('veggyies/Index', {
+      veggyies: allVeggies
     });
   })
 });
 
 // New
 
-app.get('/veggies/new', (req, res) => {
-  res.render('veggies/New');
-});
-
-// Same as for fruits
-
-app.get('/veggies/new', (req, res) => {
-  // in here goes your res.redirect to the new FORM
+app.get('/veggyies/new', (req, res) => {
+  res.render('veggyies/New');
 });
 
 // Create
 
-// Same as for fruits
+app.post('/veggyies', (req, res) => {
+  if (req.body.readyToEat === 'on') {
+    req.body.readyToEat = true;
+  } else {
+    req.body.readyToEat = false;
+  }
+  Veggie.create(req.body, (error, createdVeggie) => {
+    res.redirect('/veggyies')
+  })
+});
 
-app.post('/veggies', (req, res) => {
-  // In here goes your ready to eat change AND your Veggie.create method
-})
+// Delete
 
-// Show
+app.delete('/veggyies/:id', (req, res) => {
+  Veggie.deleteOne({
+    _id: req.params.id
+  }, (error, data) => {
+    console.log(data);
+    res.redirect('/veggyies');
+  })
+});
 
-app.get('/veggies/:id', (req, res) => {
-  Veggie.findOne({ _id: req.params.id }, (error, foundVeggie) => {
-    res.render('veggie/Show', {
-      veggie: foundVeggie
-    });
+// Update
+
+app.put('/veggyies/:id', (req, res) => {
+  if (req.body.readyToEat === 'on') {
+    req.body.readyToEat = true
+  } else {
+    req.body.readyToEat = false
+  }
+  Veggie.updateOne({
+    _id: req.params.id
+  }, req.body, (error, data) => {
+    if (error) {
+      console.error(error);
+      res.json({
+        error: error
+      });
+    } else {
+      res.redirect(`/veggyies/$req.params.id`);
+    }
   });
 });
 
-// Add a Veggie.findOne with the _id of the veggie you want to display. Reference the fruits one!
+// Edit
 
-app.get('/veggies/:indexOfArr', (req, res) => {
-  // res.render('veggies/Show', {
-  //   veggie: veggies[req.params.indexOfArr]
-  // });
+app.get('/veggyies/:id/edit', (req, res) => {
+  Veggie.findOne({
+    _id: req.params.id
+  }, (error, foundVeggie) => {
+    if (error) {
+      console.error(error);
+      res.json({
+        error: error
+      })
+    } else {
+      res.render('veggyies/Edit', { veggie: foundVeggie });
+    }
+  })
+});
+
+// Show
+
+app.get('/veggyies/:id', (req, res) => {
+  Veggie.findOne({ _id: req.params.id }, (error, foundVeggie) => {
+    res.render('veggies/Show', {
+      veggie: foundVeggie
+    });
+  });
 });
 
 // -------------------------

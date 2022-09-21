@@ -1,10 +1,9 @@
 const React = require('react');
-const DefaultLayout = require('../components/Default');
+const DefaultLayout = require('../../components/Default');
 
 const Edit = ({ fruit }) => {
   return(
     <DefaultLayout title="Edit Page">
-
       <form action={`/fruits/${fruit._id}?_method=PUT`} method="POST">
         <label htmlFor="name">Name:</label>
         <input type="text" name="name" defaultValue={fruit.name} /> <br/>

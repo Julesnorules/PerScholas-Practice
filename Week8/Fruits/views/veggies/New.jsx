@@ -20,4 +20,3 @@ const New = (props) => {
 
 module.exports = New;
 
-// Add a form (like in the fruits new page) to collect the data you need to make a new veggie
