@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const Fruit = require('./models/Fruit');
 const Veggie = require('./models/Veggie');
 const methodOverride = require('method-override');
+const seedData = require('./models/seed');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 // -------------------------
 // Mongoose Connection Stuff
@@ -137,47 +140,47 @@ app.get('/fruits/:id', (req, res) => {
 // Index
 // Add a Veggie.find to find all of the veggies and pass that to your res.render
 
-app.get('/veggyies', (req, res) => {
+app.get('/veggies', (req, res) => {
   Veggie.find({}, (error, allVeggies) => {
-    res.render('veggyies/Index', {
-      veggyies: allVeggies
+    res.render('veggies/Index', {
+      veggies: allVeggies
     });
   })
 });
 
 // New
 
-app.get('/veggyies/new', (req, res) => {
-  res.render('veggyies/New');
+app.get('/veggies/new', (req, res) => {
+  res.render('veggies/New');
 });
 
 // Create
 
-app.post('/veggyies', (req, res) => {
+app.post('/veggies', (req, res) => {
   if (req.body.readyToEat === 'on') {
     req.body.readyToEat = true;
   } else {
     req.body.readyToEat = false;
   }
   Veggie.create(req.body, (error, createdVeggie) => {
-    res.redirect('/veggyies')
+    res.redirect('/veggies')
   })
 });
 
 // Delete
 
-app.delete('/veggyies/:id', (req, res) => {
+app.delete('/veggies/:id', (req, res) => {
   Veggie.deleteOne({
     _id: req.params.id
   }, (error, data) => {
     console.log(data);
-    res.redirect('/veggyies');
+    res.redirect('/veggies');
   })
 });
 
 // Update
 
-app.put('/veggyies/:id', (req, res) => {
+app.put('/veggies/:id', (req, res) => {
   if (req.body.readyToEat === 'on') {
     req.body.readyToEat = true
   } else {
@@ -192,14 +195,14 @@ app.put('/veggyies/:id', (req, res) => {
         error: error
       });
     } else {
-      res.redirect(`/veggyies/$req.params.id`);
+      res.redirect(`/veggies/$req.params.id`);
     }
   });
 });
 
 // Edit
 
-app.get('/veggyies/:id/edit', (req, res) => {
+app.get('/veggies/:id/edit', (req, res) => {
   Veggie.findOne({
     _id: req.params.id
   }, (error, foundVeggie) => {
@@ -209,14 +212,14 @@ app.get('/veggyies/:id/edit', (req, res) => {
         error: error
       })
     } else {
-      res.render('veggyies/Edit', { veggie: foundVeggie });
+      res.render('veggies/Edit', { veggie: foundVeggie });
     }
   })
 });
 
 // Show
 
-app.get('/veggyies/:id', (req, res) => {
+app.get('/veggies/:id', (req, res) => {
   Veggie.findOne({ _id: req.params.id }, (error, foundVeggie) => {
     res.render('veggies/Show', {
       veggie: foundVeggie

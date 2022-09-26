@@ -3,7 +3,6 @@ const DefaultLayout = require('../components/Default');
 const ListItem = require('../components/ListItem');
 
 const Index = (props) => {
-
   return (
     <DefaultLayout title={"Fruits Index Page"}>
       <div>
@@ -20,7 +19,6 @@ const Index = (props) => {
             })
           }
         </ul>
-
       </div>
     </DefaultLayout>
   )
