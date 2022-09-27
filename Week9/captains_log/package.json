@@ -1,4 +1,15 @@
 {
+  "name": "wise-captains-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
@@ -7,16 +18,5 @@
     "mongoose": "^6.6.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "name": "captains-log",
-  "version": "1.0.0",
-  "main": "server.js",
-  "devDependencies": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  }
 }
