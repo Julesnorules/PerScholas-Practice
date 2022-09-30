@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  background-color: #f9f9ec;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  text-align: center; */
+}
+
+.EmployeeListItem {
+  width: 100vh;
+
+}
+
+.Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h4 p {
+  margin: 0;
+  padding: 0;
+}
+
