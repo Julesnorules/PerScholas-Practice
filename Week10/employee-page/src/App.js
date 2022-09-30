@@ -1,8 +1,8 @@
 import './App.css';
-import Header from './components/home_page/Header';
-import SearchBar from './components/home_page/SearchBar';
-// import EmployeeList from './components/home_page/EmployeeList';
-import EmployeeListItem from './components/home_page/EmployeeListItem';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import HomePage from './components/HomePage';
+import EmployeeListItem from './components/EmployeeListItem';
 import employeesArr from './data';
 
 
@@ -23,7 +23,6 @@ export default function App() {
         <div><Header /></div>
         <div><SearchBar employeesearch = {EmployeeListItem} /></div>
         <div>{employees}
-        img
         </div>
       </div>
       <div className="employee-page">
