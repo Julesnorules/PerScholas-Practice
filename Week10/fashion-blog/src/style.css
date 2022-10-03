@@ -1,6 +1,19 @@
 .App {
-  text-align: center;
+	margin: 0;
+	padding: 3em;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+	background: #FFF;
+	color: #444;
+	width: 60em;
+	border-left: 6px solid #DDD;
 }
+
+/* h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+} */
 
 h1 {
   text-align: left;
@@ -24,6 +37,8 @@ a {
   color: grey;
 }
 
-h2:hover {
-  color: grey;
+img {
+	display: block;
+	margin: 10px 0;
+	max-width: 100%;
 }
