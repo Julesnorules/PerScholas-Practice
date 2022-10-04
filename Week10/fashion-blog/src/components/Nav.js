@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Nav (props) {
   return (
-    <nav className="topnav" aria-label="Main Navigation" role="navigation">
+    <nav className="top-nav">
       <Link to="/womens">
             <div>Women's</div>
         </Link>
