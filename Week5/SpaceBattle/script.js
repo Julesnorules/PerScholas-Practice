@@ -24,7 +24,7 @@ class HeroShip extends Ship {
           let randomNum = Math.random();
             if(randomNum < this.accuracy){
               alienShip.hull -= this.firepower; 
-               console.log("You hit the target!");
+                console.log("You hit the target!");
             } else {console.log("You have missed!")}
               alienShip.attackHero(this) 
           } while(alienShip.hull > 0){console.log(`Good job! The ${alienShip.name} is destroyed!`)};
@@ -32,7 +32,7 @@ class HeroShip extends Ship {
             console.log("Hooray! Congratulations, you saved the Earth from an alien invasion!");
         }
       } 
-    }else {console.log("The Erth is doomed!")}
+    } else {console.log("The Erth is doomed!")}
   }
 }
 
@@ -84,3 +84,4 @@ heroShipOne.attackAlien(alienShips);
 // After every battle you are asked if you want to return to base and recharge your shields.
 // Make the players and enemies stronger after each battle
 // Distribute medals and power ups to the player depending on points
+

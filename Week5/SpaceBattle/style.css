@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+body {
+  text-align: center;
+  background-image: url('Space.jpg');
+  background-color: rgb(7, 7, 44);
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  background-color: hsl(33, 84%, 57%);
+  color: black;
+  font-weight: bold;
+  box-shadow: -2px 2px rgb(255, 208, 0);
+}
+
+button:active {
+  background-color: rgba(255, 81, 0, 0.928);
+}
+
+div {
+  padding: 50px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.section {
+  background-color: #074b75;
+  border-radius: 15px;
+  opacity: 80%;
+}
+
+.game-container {
+  height: 100vh;
+  width: 80vw;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  font-family: 'Bungee Spice', cursive;
+  text-shadow: 5px 5px #7b7e80;
+  letter-spacing: 4px;
+  line-height: 4rem;
+}
+
+#gameInfo {
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(205, 205, 205);
+  text-shadow: 2px 2px black;
+}

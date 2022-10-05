@@ -1,21 +1,36 @@
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Main from './pages/Main';
 import Button from './components/Button';
+import { useEffect, useState } from 'react';
 
 
-// const questions = questionsArr.map((element, index) => {
-//   return (
-//     <Button
-//       key={index}
-//       {...element}
-//     />
-//   )
-// });
+function App() {
 
-export default function App() {
+  const [questionsList, setQuestion] = useState([]);
+
+  const getData = async () => {
+    try {
+      const response = await fetch('http://jservice.io/api/random');
+      const data = await response.json();
+      setQuestion(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
+
   return (
     <div className="App">
-      <h1>WELCOME to Jeopardy!</h1>
-      <Button />
+      <Routes>
+        <Route path="/" element={<Main questions={questionsList} />} />
+        <Route path="/questions/:questionNo" element={<Button />} />
+      </Routes>
     </div>
   );
 }
+
+export default App;
