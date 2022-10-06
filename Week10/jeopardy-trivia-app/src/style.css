@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap');
+
+body {
+    background-color: rgb(54, 84, 104);
+    min-height: 100vh;
+    padding: 1rem;
+    margin: 1rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Code Pro', monospace;
+  }
+  
+  header, h4, h3, p, span {
+    color: rgb(231, 204, 111);
+  }
+
+  header {
+    color: white;
+    font-size: calc(20px + 2vmin);
+    font-family: 'Source Code Pro', monospace;
+  }
+  

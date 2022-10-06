@@ -1,36 +1,49 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Main from './pages/Main';
-import Button from './components/Button';
+import './style.css';
+import Question from './components/Question';
 import { useEffect, useState } from 'react';
 
 
 function App() {
 
-  const [questionsList, setQuestion] = useState([]);
-
-  const getData = async () => {
-    try {
-      const response = await fetch('http://jservice.io/api/random');
-      const data = await response.json();
-      setQuestion(data);
-    } catch (error) {
-      console.error(error);
-    }
+  const [question, setQuestion] = useState([]);
+  const getQuestion = async () => {
+      try {
+        const response = await fetch('http://jservice.io/api/random');
+        const data = await response.json();
+        setQuestion(data);
+      } catch (error) {
+        console.error(error);
+      }
   }
 
   useEffect(() => {
-    getData();
+    getQuestion();
   }, [])
 
-  return (
+  return (    
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Main questions={questionsList} />} />
-        <Route path="/questions/:questionNo" element={<Button />} />
-      </Routes>
+      <header>Welcome to JEOPARDY!</header>
+      <h3>Let's Play!</h3>
+        <Question  />
+        <div>
+          {question.map(question => (
+            <div key={question.id}>
+                <h4>Category: {question.category.title}</h4>
+                    {/* {question.question} */}
+              <div> 
+                <button onClick={() => {
+                }}><h3>Show Answer</h3></button>
+                <span>Answer: {question.answer}</span>
+                <div>
+                <button onClick={() => {
+                }}><p>Click to Reveal Question</p></button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
     </div>
-  );
+  )
 }
-
 export default App;
