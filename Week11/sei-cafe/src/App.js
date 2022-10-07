@@ -8,18 +8,18 @@ import { Routes, Route } from 'react-router-dom'
 
 function App() {
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
 
   return (
     <div className="App">
       {
         user ?
-        <>
-        <NavBar />
-          <Routes>
-            <Route path="/orders/new" element={<NewOrder />} />
-            <Route path="/orders" element={<OrderHistory />} />
-          </Routes>
+          <>
+            <NavBar />
+            <Routes>
+              <Route path="/orders/new" element={<NewOrder />} />
+              <Route path="/orders" element={<OrderHistory />} />
+            </Routes>
           </>
           :
           <Auth />

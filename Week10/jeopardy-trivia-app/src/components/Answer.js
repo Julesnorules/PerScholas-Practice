@@ -1,15 +1,14 @@
 import React from 'react';
-import { useState } from "react";
 
-export default function Answer () {
+export default function Answer (props) {
 
-  const [ question ] = useState('');
+  const [showAnswer, setAnswer] = useState(false);
 
   return( 
     <>
     <div>
-      <button onClick={() => getAnswer()}>Show Answer</button>
-      <h3>Answer: { getAnswer }</h3>
+      <button onClick={() => setAnswer(!showAnswer)}>Show Answer</button>
+      {showAnswer ? <h3>Answer: { props.data.answer }</h3> : ''}
     </div>
     </>       
   )
