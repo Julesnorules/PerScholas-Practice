@@ -32,7 +32,11 @@ export default function App() {
         <h1>Let's Play!</h1>
       </div>
 
-      <div><Question data={data} /></div>  
+      <div>
+        <button onClick={() => {getData()}}>
+        <h3>Get Question</h3></button>
+        <Question data={data} />
+      </div>  
 
       <div><Answer data={data} /></div>
 
