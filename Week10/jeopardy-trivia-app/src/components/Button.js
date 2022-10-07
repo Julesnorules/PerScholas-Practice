@@ -6,7 +6,7 @@ export default (props) => {
         } else if (props.operator === "Decrease") {
             props.setCount(props.count - 100)
         } else if (props.operator === "Reset") {
-            props.setCount(props.count === 0)
+            props.setCount(props.count === 0) 
         }
     }
 

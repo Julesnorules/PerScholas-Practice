@@ -1,7 +1,7 @@
 import './App.css';
 import './style.css';
 import Question from './components/Question';
-import Answear from './components/Answear';
+import Answer from './components/Answer';
 import Score from './components/Score';
 
 
@@ -21,7 +21,7 @@ function App() {
 
       <div><Question /></div>  
 
-      <div><Answear /></div>
+      <div><Answer /></div>
 
 
     </div>
