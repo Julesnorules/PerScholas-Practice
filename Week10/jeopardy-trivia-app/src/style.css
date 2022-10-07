@@ -10,8 +10,19 @@ body {
     font-family: 'Source Code Pro', monospace;
   }
   
-  header, h4, h3, p, span {
+  h1 h2 h3 {
     color: rgb(231, 204, 111);
+  }
+
+  p span {
+    color: white;
+  }
+
+  button {
+    background-color:  rgb(231, 204, 111);
+    border-radius: 10px;
+    border-style: none;
+    color: rgb(54, 84, 104);
   }
 
   header {

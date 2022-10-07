@@ -4,32 +4,25 @@ import { useParams } from "react-router-dom"
 
 export default function Question () {
 
- 
-    const [question, setQuestion] = useState({});
+  const [question, setQuestion] = useState({})
   const getQuestion = async () => {
-      try {
         const response = await fetch('http://jservice.io/api/random');
         const data = await response.json();
-        this.state = data[0].question;
-        console.log(data[0].question)
-         setQuestion(data[0].question);
-      } catch (error) {
-        console.error(error);
-      };
+        setQuestion(data[0]);
   }
 
-  useEffect(() => {
-    getQuestion();
-  }, [])
-
-    return(        
-        <div>
-            <button onClick={() => {
-             getQuestion()
-            }}><h3>Get Question</h3></button>
-             {/* <p>{this.state}</p>  */}
-        </div>
+  return(        
+    <div>
+      <button onClick={() => {
+          getQuestion()
+        }}><h3>Get Question</h3>
+      </button>
+      <h4>{question?.question}</h4>
+      <div>
+      <h3>Category: </h3><h4>{question?.category.title}</h4>
+      
+      </div>
         
-    )
-
+    </div>
+  )
 }
