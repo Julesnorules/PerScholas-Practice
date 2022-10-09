@@ -34,7 +34,7 @@ export default function App() {
 
       <div>
         <button onClick={() => {getData()}}>
-        <h3>Get Question</h3></button>
+        Get Question</button>
         <Question data={data} />
       </div>  
 

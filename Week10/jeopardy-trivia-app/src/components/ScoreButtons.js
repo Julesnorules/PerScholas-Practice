@@ -1,16 +1,23 @@
 export default (props) => {
 
-    const handleFunc = () => {
-        if (props.operator === "Increase") {
-            props.setCount(props.count + 100)
-        } else if (props.operator === "Decrease") {
-            props.setCount(props.count - 100)
-        } else if (props.operator === "Reset") {
-            props.setCount(props.count === 0) 
-        }
+    const increase = () => {
+        props.setCount(props.count + 100)
+    }
+
+    const decrease = () => {
+        props.setCount(props.count - 100)
+    }
+
+    const reset = () => {
+        props.setCount(props.count - props.count)
     }
 
     return (
-        <button onClick={handleFunc}>{props.operator}</button>
+        <div className="btn-container">
+        <button className="bd" onClick={decrease}>Decrease</button>
+        <button className="bi" onClick={increase}>Increase</button>
+        <button className="br" onClick={reset}>Reset</button>
+        </div>
+        
     )
 }

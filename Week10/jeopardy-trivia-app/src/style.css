@@ -10,11 +10,17 @@ body {
     font-family: 'Source Code Pro', monospace;
   }
   
-  h1 h2 h3 {
+  h1, h2, h3 {
     color: rgb(231, 204, 111);
+
   }
 
-  p span {
+h4 {
+  color: white;
+
+}
+
+  p, span {
     color: white;
   }
 
@@ -23,6 +29,26 @@ body {
     border-radius: 10px;
     border-style: none;
     color: rgb(54, 84, 104);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+  }
+
+  .btn-container {
+    padding: 5px;
+  }
+
+  .bd {
+    background-color: salmon;
+  }
+
+  .br {
+    background-color: red;
+  }
+
+  .bi {
+    background-color: lightblue;
   }
 
   header {
