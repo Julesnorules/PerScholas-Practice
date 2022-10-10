@@ -1,5 +1,5 @@
 import React from 'react';
-import EmployeeListItem from './home_page/EmployeeListItem';
+import EmployeeListItem from './EmployeeListItem';
 
 const EmployeeList = (props) => {
     return (

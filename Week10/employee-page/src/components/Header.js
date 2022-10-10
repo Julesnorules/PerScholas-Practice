@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {  
     return (
-        <div className="Header">Employee Directory</div>
+        <div className="header">Employee Directory</div>
     ); 
 };
 

@@ -1,9 +1,12 @@
 import './App.css';
+import './style.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
-import HomePage from './components/HomePage';
-import EmployeeListItem from './components/EmployeeListItem';
-import employeesArr from './data';
+import HomePage from './pages/HomePage';
+import EmployeePage from './pages/EmployeePage';
+import EmployeeList from './components/EmployeeList';
+import EmployeeListItem from './components/EmployeeListItem'
+import employeesArr from './data'
 
 
 const employees = employeesArr.map((element, index) => {  
@@ -20,12 +23,13 @@ export default function App() {
   return (
     <div className = "App">
       <div className="home-page">
-        <div><Header /></div>
-        <div><SearchBar employeesearch = {EmployeeListItem} /></div>
-        <div>{employees}
-        </div>
+        <Header />
+        <SearchBar employeesearch = {EmployeeListItem} />
+        <EmployeeList />
       </div>
       <div className="employee-page">
+        <Header />
+        <EmployeeListItem />
       </div>
       
     </div>

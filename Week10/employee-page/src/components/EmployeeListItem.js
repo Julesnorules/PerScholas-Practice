@@ -1,13 +1,22 @@
 import React from 'react';
+import employeeslist from'../data'
 
-const EmployeeListItem = (props) => {
+export default function EmployeeListItem (props) {
+
+    // const employee = employeeslist.map((element, index) => {
+
     return (
-        <div className='employeeItem'> 
-            <img alt='employeesImg' src={`https://robohash.org/${props.id}?`} />
-            <h4>{props.name}</h4>
-            <p>{props.role}</p>
+
+        <div className='img-employee-list'>
+            <img className='employeesImg' alt='employeesImg' src={`https://robohash.org/${props.id}?`} />
+            <h1>{props.name}<p>{props.role}</p></h1>
         </div>
     );
 }
 
-export default EmployeeListItem;
+
+//   return (
+//     <Card
+//       key={index}
+//       {...element}
+//     />

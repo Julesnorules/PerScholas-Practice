@@ -1,0 +1,33 @@
+body {
+    margin: auto;
+
+}
+
+Header {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.employee-list-item-container {
+    border: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: .5fr 3fr;
+    text-align: left;
+    padding: 1rem;
+}
+
+.employeesImg {
+    width: 100%;
+}
+
+p {
+color: grey;
+padding: 0;
+margin: 0;
+}
+
+
+
+
