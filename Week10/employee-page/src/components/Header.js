@@ -1,8 +1,6 @@
-import React from "react";
-
 const Header = () => {  
     return (
-        <div className="header">Employee Directory</div>
+        <header>Employee Directory</header>
     ); 
 };
 

@@ -1,22 +1,15 @@
-import React from 'react';
+import employeesArr from '../data';
 import EmployeeListItem from './EmployeeListItem';
 
-const EmployeeList = (props) => {
+const list = employeesArr.map(( employee, i ) => {
     return (
         <div>
-            {
-                props.employees.map((employee,i) => {
-                    return (
-                        <EmployeeListItem key={i} 
-                        img={employee[i].img} 
-                        name={employee[i].name} 
-                        role={employee[i].role}
-                        />
-                    );
-                })
-            }
+            <EmployeeListItem key={i} {...employee}
+                img={employee[i].img} 
+                name={employee[i].name} 
+                role={employee[i].role}
+            />
         </div> 
     );
 }
 
-export default EmployeeList;
