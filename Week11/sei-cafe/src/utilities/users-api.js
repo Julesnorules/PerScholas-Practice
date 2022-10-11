@@ -1,5 +1,7 @@
-const BASE_URL = '/api/user';
-import axios from 'axios'
+import axios from 'axios';
+const BASE_URL = '/api/users';
+
+
 
 export async function signUp(userData) {
   // This is how to do a post request using FETCH:
@@ -11,7 +13,7 @@ export async function signUp(userData) {
 
   // This is the better way, using AXIOS!
   const response = await axios.post(BASE_URL, userData)
-  if (response.status === 200) {
+  if (response.status === 201) {
     return response.data
   } else {
     throw new Error('Invalid Sign Up!')
