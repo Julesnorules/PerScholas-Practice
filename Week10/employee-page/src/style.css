@@ -1,13 +1,18 @@
 body {
-    margin: auto;
+    margin: 1rem;
 
 }
 
 Header {
     align-items: center;
     justify-content: center;
-    margin: auto;
+    margin: 1rem;
 
+}
+
+.searchBar {
+margin-bottom: 1rem;
+    width: 100%;
 }
 
 .employee-list-item-container {
@@ -16,6 +21,7 @@ Header {
     grid-template-columns: .5fr 3fr;
     text-align: left;
     padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .employeesImg {
@@ -28,6 +34,8 @@ padding: 0;
 margin: 0;
 }
 
-
+a {
+    text-decoration: none;
+}
 
 

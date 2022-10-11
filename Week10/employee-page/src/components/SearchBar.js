@@ -2,8 +2,8 @@ import React from "react";
 
 const SearchBar = ({ searchChange }) => {
     return (
-        <div className = "searchBar">
-            <input type= 'search' placeholder= 'Search Employee D'
+        <div>
+            <input className = "searchBar" type= 'search' placeholder= 'Search Employee'
             onChange={searchChange} 
             />
         </div>
